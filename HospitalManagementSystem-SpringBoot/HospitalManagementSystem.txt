@@ -1,0 +1,81 @@
+Hospital Management System:
+	models:
+		1.person:
+			1.name
+			2.Age
+			3.PhoneNo
+			4.Gender
+			5.Address
+		2.employee:
+			1.employeeId
+			2.employeeType
+			3.Salary
+			4.Department
+		3.patient:
+			1.patientId
+			2.DateOfJoining
+			3.DateOfDischarge
+			4.DiagnosisInfo
+			5.BillAmount
+			6.ConsultedDoctorId
+			7.AssignedRoomNo
+		4.Room:
+			1.RoomNo
+			2.RoomType
+			3.status
+		5.EmployeePresence:(for JPA Table Creation)
+			1.EmployeeId
+			2.Entry_date
+			3.login_time
+			4.logout_time
+	Serives:
+		1.AdminService
+	Controller:
+		2.AdminConTroller:
+			1.employee:
+				1.login:(postMapping)
+					1.employeeId
+					2.password
+					3.entry_date
+					4.login_time
+				2.logout:(putMapping)
+					1.employeeId
+					2.entry_date
+					3.logout_time
+				3.addEmployee:(postMapping)
+					1.EmployeeObject
+				4.employeeById:(getMapping)
+					1.employee_id
+				5.employeePresenceByDate:(getMapping)
+					1.entry_date
+				6.deleteEmployee:(deleteMapping)
+					1.employeeId
+				7.employeeDetailsbyType:(getMapping)
+					1.employeeType
+				8.updateById:(putMapping)
+					1.employeeId
+			2.patient:
+				1.registerPatient:(also changes the room status to not avaiable)
+					1.PatientObject
+				2.dischargePatient:(also changes the room status to avaiable)
+					1.patient_id
+					2.discharge_date
+					3.bill_amount
+				3.patientById:
+					1.patient_id
+			3.Room:
+				1.addRoom:(postMapping)
+					1.roomObject
+				2.deleteRoom:(deleteMapping)
+					1.roomNo
+				3.getAllRooms(getMapping)
+				4.getAvailableRoomsByType:(GetMapping)
+					1.roomType
+	Repositories:
+		1.EmployeeRepository
+		2.PatientRepository
+	Tables in DataBase:
+		1.Employee (EmployeeDetails)
+		2.Patient	(PatientDetails)
+		3.EmployeePresence	(EmployeeAttendence)
+		4.Room	(RoomDetails)
