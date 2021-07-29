@@ -27,7 +27,6 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
-
 	@PostMapping(path = "patient")
 	public String registerPatient(@RequestBody Patient patient) {
 		patient.setDateOfJoining(LocalDate.now());
@@ -80,6 +79,11 @@ public class AdminController {
 	@GetMapping(path = "patient/id")
 	public List<Map<String,Object>> patientById(@RequestParam Integer patientId) {
 		return adminService.patientById(patientId);
+	}
+	
+	@GetMapping(path = "patient/type")
+	public List<Map<String,Object>> patientByType(@RequestParam String patientType) {
+		return adminService.patientByType(patientType);
 	}
 	
 	@GetMapping(path = "room")

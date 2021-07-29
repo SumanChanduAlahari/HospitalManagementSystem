@@ -102,4 +102,9 @@ public class AdminService {
 	
 		return patientRepository.dischargePatient(patientId, billAmount, dateOfDischarge);
 	}
+
+	public List<Map<String, Object>> patientByType(String patientType) {
+		
+		return patientRepository.patientByType(patientType);
+	}
 }

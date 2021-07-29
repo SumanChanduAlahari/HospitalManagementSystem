@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Patient extends Person{
 	private int patientId;
+	private String patientType;
 	private LocalDate dateOfJoining;
 	private LocalDate dateOfDischarge;
 	private String diagnosisInfo;
@@ -52,6 +53,12 @@ public class Patient extends Person{
 	}
 	public void setBillAmount(float billAmount) {
 		this.billAmount = billAmount;
+	}
+	public String getPatientType() {
+		return patientType;
+	}
+	public void setPatientType(String patientType) {
+		this.patientType = patientType;
 	}
 	
 }

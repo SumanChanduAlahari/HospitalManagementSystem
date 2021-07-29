@@ -33,7 +33,7 @@ Hospital Management System:
 	Controller:
 		2.AdminConTroller:
 			1.employee:
-				1.login:(postMapping)
+				1.login:(postMapping)(also validate employee credentials)
 					1.employeeId
 					2.password
 					3.entry_date
@@ -55,13 +55,13 @@ Hospital Management System:
 				8.updateById:(putMapping)
 					1.employeeId
 			2.patient:
-				1.registerPatient:(also changes the room status to not avaiable)
+				1.registerPatient:(PostMapping)(also changes the room status to not available)
 					1.PatientObject
-				2.dischargePatient:(also changes the room status to avaiable)
+				2.dischargePatient:(PutMapping)(also changes the room status to available)
 					1.patient_id
 					2.discharge_date
 					3.bill_amount
-				3.patientById:
+				3.patientById:(GetMapping)
 					1.patient_id
 			3.Room:
 				1.addRoom:(postMapping)
